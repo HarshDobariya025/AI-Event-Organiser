@@ -3,14 +3,14 @@
 import React, { useState } from "react";
 import Link from "next/link";
 // import { Building, Crown, Plus, Sparkles, Ticket } from "lucide-react";
-// import { SignInButton, useAuth, UserButton, useUser } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, useAuth, UserButton, useUser } from "@clerk/nextjs";
 // import { Authenticated, Unauthenticated } from "convex/react";
 // import { BarLoader } from "react-spinners";
 // import { useStoreUser } from "@/hooks/use-store-user";
 // import { useOnboarding } from "@/hooks/use-onboarding";
 // import OnboardingModal from "./onboarding-modal";
 // import SearchLocationBar from "./search-location-bar";
-// import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 // import UpgradeModal from "./upgrade-modal";
 // import { Badge } from "./ui/badge";
@@ -38,6 +38,21 @@ const Header = () => {
                     </Badge>
                     )} */}
                 </Link>
+
+                {/* Right Side Actions */}
+                <div className="flex items-center">
+                    <SignedOut>
+                        <SignInButton mode="model">
+                            <Button size="sm">
+                                Sign In
+                            </Button>
+                        </SignInButton>   
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
+                </div>
+
             </div>
             
         </nav>

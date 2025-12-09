@@ -1,10 +1,10 @@
-// import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/header";
 import "./globals.css";
-// import { dark } from "@clerk/themes";
+import { dark } from "@clerk/themes";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
-// import { ConvexClientProvider } from "@/components/convex-client-provider";
+import { ConvexClientProvider } from "./ConvexClientProvider";
 import { Toaster } from "sonner";
 
 export const metadata = {
@@ -22,6 +22,8 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
+          <ClerkProvider appearance={{ baseTheme: dark }}>
+            <ConvexClientProvider>
               <Header />
 
               <main className="relative min-h-screen container mx-auto pt-40 md:pt-32">
@@ -32,10 +34,12 @@ export default function RootLayout({ children }) {
                 </div>
 
                 {/* Page content (above glow) */}
-                <div className="relative z-10 min-h-[90vh]">{children}</div>
+                <div className="relative z-10">{children}</div>
                 <Footer />
               </main>
               <Toaster position="top-center" richColors />
+            </ConvexClientProvider>
+          </ClerkProvider>
             
         </ThemeProvider>
       </body>

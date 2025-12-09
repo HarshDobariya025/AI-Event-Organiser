@@ -1,6 +1,13 @@
 npx shadcn@latest add avatar badge calendar card carousel dialog input label popover progress select separator sonner tabs textarea
 npm install next-themes
 
+// Convex - database
+npm install convex
+npx convex dev       // run
+
+
+
+
 //imgest
 npm i inngest
 npx inngest-cli@latest dev
@@ -26,8 +33,3 @@ npm i react-spinners
 npm i date-fns              //for date
 npm install recharts        //for charts
 
-//markdown editor & html2pdf  - used in resume
-npm i @uiw/react-md-editor
-npm i html2pdf
-
-@/actions/chatBot
