@@ -2,6 +2,7 @@ npx shadcn@latest add avatar badge calendar card carousel dialog input label pop
 npm install next-themes
 npm i react-spinners
 npm i embla-carousel-autoplay
+npm i country-state-city
 
 // Convex - database
 npm install convex
