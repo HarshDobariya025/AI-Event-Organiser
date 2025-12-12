@@ -3,6 +3,7 @@ npm install next-themes
 npm i react-spinners
 npm i embla-carousel-autoplay
 npm i country-state-city
+npm install lobash          // makes api calls faster every 300ms
 
 // Convex - database
 npm install convex

@@ -24,7 +24,7 @@ import EventCard from "@/components/event-card";
 
 const ExplorePage = () => {
   const router = useRouter();
-  const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
+  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
 
   // Fetch current user for location
   const { data: currentUser } = useConvexQuery(api.users.getCurrentUser);
