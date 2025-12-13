@@ -24,6 +24,7 @@ export default function UpgradeModal({ isOpen, onClose, trigger = "limit" }) {
             {trigger === "header" && "Create Unlimited Events with Pro! "}
             {trigger === "limit" && "You've reached your free event limit. "}
             {trigger === "color" && "Custom theme colors are a Pro feature. "}
+            {trigger === "ai" && "Generate with AI is a Pro feature. "}
             Unlock unlimited events and premium features!
           </DialogDescription>
         </DialogHeader>

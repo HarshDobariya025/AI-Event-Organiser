@@ -3,37 +3,12 @@ npm install next-themes
 npm i react-spinners
 npm i embla-carousel-autoplay
 npm i country-state-city
-npm install lobash          // makes api calls faster every 300ms
+npm install lobash                                     // makes api calls faster every 300ms
+npm install zod react-hook-form @hookform/resolvers    // for forms
+npm i @google/generative-ai                            // gemini api
+
 
 // Convex - database
 npm install convex
 npx convex dev       // run
-
-
-
-
-//imgest
-npm i inngest
-npx inngest-cli@latest dev
-
-// local database
-npx prisma studio
-
-//database
-npm i -D prisma  // database
-npx prisma migrate dev --name create-models // push these schema to database,  do this when all schemas are ready
-npx prisma migrate dev --name delete-ChatMessage-model  // to delete any schema or model
-
-//onboarding
-npm i react-hook-form zod @hookform/resolvers       //@@hookform/resolvers makes sure that previous  to works
-
-//Geminie api -> used in actions - dashboard.js
-npm i @google/generative-ai 
-
-//for loading indicator - used in dashobard layout.jsx
-npm i react-spinners
-
-//dashboard-view.jsx
-npm i date-fns              //for date
-npm install recharts        //for charts
 

@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
                 <div className="relative z-10">{children}</div>
                 <Footer />
               </main>
-              <Toaster position="top-center" richColors />
+              <Toaster position="bottom-right" richColors />
             </ConvexClientProvider>
           </ClerkProvider>
             
