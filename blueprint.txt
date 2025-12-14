@@ -6,6 +6,9 @@ npm i country-state-city
 npm install lobash                                     // makes api calls faster every 300ms
 npm install zod react-hook-form @hookform/resolvers    // for forms
 npm i @google/generative-ai                            // gemini api
+npm install react-qr-code                              // QR code
+npm i html5-qrcode                                     // QR - reading, scanning ...
+
 
 
 // Convex - database

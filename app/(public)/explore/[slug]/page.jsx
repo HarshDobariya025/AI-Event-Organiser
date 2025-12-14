@@ -128,6 +128,7 @@ export default function DynamicExplorePage() {
               key={event._id}
               event={event}
               onClick={() => handleEventClick(event.slug)}
+              variant={"list"}
             />
           ))}
         </div>

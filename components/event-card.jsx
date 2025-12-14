@@ -12,7 +12,7 @@ export default function EventCard({
   event,
   onClick,
   onDelete,
-  variant = "list", // "grid" or "list"
+  variant = "grid", // "grid" or "list"
   action = null, // "event" | "ticket" | null
   className = "",
 })  {
