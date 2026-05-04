@@ -2,10 +2,11 @@ services:
   nextjs-app:
     build: .
     container_name: spott-nextjs-container
+    
     ports:
       - "3000:3000"
+
     env_file:
       - .env
-    environment:
-      - NODE_OPTIONS=--stack-trace-limit=100
+
     restart: always
