@@ -69,10 +69,10 @@ const ExplorePage = () => {
   };
 
   // Format categories with counts
-  const categoriesWithCounts = CATEGORIES.map((cat) => ({
+  const categoriesWithCounts = CATEGORIES && Array.isArray(CATEGORIES) ? (CATEGORIES ?? []).map((cat) => ({
       ...cat,
       count: categoryCounts?.[cat.id] || 0,
-  }));
+  })) : [];
 
   // Loading state
   const isLoading = loadingFeatured || loadingLocal || loadingPopular;
@@ -106,7 +106,7 @@ const ExplorePage = () => {
                 onMouseLeave={plugin.current.reset}
             >
                 <CarouselContent>
-                {featuredEvents.map((event) => (
+                {featuredEvents && Array.isArray(featuredEvents) && (featuredEvents ?? []).map((event) => (
                     <CarouselItem key={event._id}>
                     <div
                         className="relative h-[400px] rounded-xl overflow-hidden cursor-pointer"
@@ -188,7 +188,7 @@ const ExplorePage = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {localEvents.map((event) => (
+                    {localEvents && Array.isArray(localEvents) && (localEvents ?? []).map((event) => (
                     <EventCard
                         key={event._id}
                         event={event}
@@ -205,7 +205,7 @@ const ExplorePage = () => {
             <h2 className="text-3xl font-bold mb-6">Browse by Category</h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
-            {categoriesWithCounts.map((category) => (
+            {categoriesWithCounts && categoriesWithCounts.length > 0 && (categoriesWithCounts ?? []).map((category) => (
                 <Card
                 key={category.id}
                 className="py-2 group cursor-pointer hover:shadow-lg transition-all hover:border-purple-500/50"
@@ -236,7 +236,7 @@ const ExplorePage = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {popularEvents.map((event) => (
+                {popularEvents && Array.isArray(popularEvents) && (popularEvents ?? []).map((event) => (
                 <EventCard
                     key={event._id}
                     event={event}

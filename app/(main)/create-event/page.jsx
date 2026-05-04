@@ -109,7 +109,7 @@ export default function CreateEventPage() {
   const endDate = watch("endDate");
   const coverImage = watch("coverImage");
 
-  const indianStates = useMemo(() => State.getStatesOfCountry("IN"), []);
+  const indianStates = useMemo(() => State.getStatesOfCountry("IN") || [], []);
   const cities = useMemo(() => {
     if (!selectedState) return [];
     const st = indianStates.find((s) => s.name === selectedState);
@@ -135,7 +135,7 @@ export default function CreateEventPage() {
 
   const combineDateTime = (date, time) => {
     if (!date || !time) return null;
-    const [hh, mm] = time.split(":").map(Number);
+    const [hh, mm] = (time || "").split(":").map(Number);
     const d = new Date(date);
     d.setHours(hh, mm, 0, 0);
     return d;
@@ -284,7 +284,7 @@ export default function CreateEventPage() {
               )}
             </div>
             <div className="flex gap-2 flex-wrap">
-              {colorPresets.map((color) => (
+              {(colorPresets ?? []).map((color) => (
                 <button
                   key={color}
                   type="button"
@@ -429,7 +429,7 @@ export default function CreateEventPage() {
                     <SelectValue placeholder="Select category" />
                   </SelectTrigger>
                   <SelectContent>
-                    {CATEGORIES.map((cat) => (
+                    {CATEGORIES && CATEGORIES.length > 0 && (CATEGORIES ?? []).map((cat) => (
                       <SelectItem key={cat.id} value={cat.id}>
                         {cat.icon} {cat.label}
                       </SelectItem>
@@ -462,7 +462,7 @@ export default function CreateEventPage() {
                       <SelectValue placeholder="Select state" />
                     </SelectTrigger>
                     <SelectContent>
-                      {indianStates.map((s) => (
+                      {indianStates && indianStates.length > 0 && (indianStates ?? []).map((s) => (
                         <SelectItem key={s.isoCode} value={s.name}>
                           {s.name}
                         </SelectItem>
@@ -489,7 +489,7 @@ export default function CreateEventPage() {
                       />
                     </SelectTrigger>
                     <SelectContent>
-                      {cities.map((c) => (
+                      {cities && cities.length > 0 && (cities ?? []).map((c) => (
                         <SelectItem key={c.name} value={c.name}>
                           {c.name}
                         </SelectItem>

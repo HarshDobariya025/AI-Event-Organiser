@@ -39,7 +39,7 @@ export default function SearchLocationBar() {
     searchQuery.trim().length >= 2 ? { query: searchQuery, limit: 5 } : "skip"
   );
 
-  const indianStates = useMemo(() => State.getStatesOfCountry("IN"), []);
+  const indianStates = useMemo(() => State.getStatesOfCountry("IN") || [], []);
 
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
@@ -139,7 +139,7 @@ export default function SearchLocationBar() {
                 <p className="px-4 py-2 text-xs font-semibold text-muted-foreground">
                   SEARCH RESULTS
                 </p>
-                {searchResults.map((event) => (
+                {searchResults && Array.isArray(searchResults) && (searchResults ?? []).map((event) => (
                   <button
                     key={event._id}
                     onClick={() => handleEventClick(event.slug)}
@@ -191,7 +191,7 @@ export default function SearchLocationBar() {
         </SelectTrigger>
         <SelectContent>
           {/* <SelectItem value="">State</SelectItem> */}
-          {indianStates.map((state) => (
+          {indianStates && indianStates.length > 0 && (indianStates ?? []).map((state) => (
             <SelectItem key={state.isoCode} value={state.name}>
               {state.name}
             </SelectItem>
@@ -215,7 +215,7 @@ export default function SearchLocationBar() {
         </SelectTrigger>
         <SelectContent>
           {/* <SelectItem value="">City</SelectItem> */}
-          {cities.map((city) => (
+          {cities && cities.length > 0 && (cities ?? []).map((city) => (
             <SelectItem key={city.name} value={city.name}>
               {city.name}
             </SelectItem>

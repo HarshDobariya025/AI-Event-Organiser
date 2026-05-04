@@ -41,7 +41,7 @@ export default function OnboardingModal({ isOpen, onClose, onComplete }) {
 
   // Get Indian states
   const indianStates = useMemo(() => {
-    return State.getStatesOfCountry("IN");
+    return State.getStatesOfCountry("IN") || [];
   }, []);
 
   // Get cities based on selected state
@@ -128,7 +128,7 @@ export default function OnboardingModal({ isOpen, onClose, onComplete }) {
           {step === 1 && (
             <div className="space-y-6">
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-[400px] overflow-y-auto p-2">
-                {CATEGORIES.map((category) => (
+                {CATEGORIES && CATEGORIES.length > 0 && (CATEGORIES ?? []).map((category) => (
                   <button
                     key={category.id}
                     onClick={() => toggleInterest(category.id)}
@@ -177,7 +177,7 @@ export default function OnboardingModal({ isOpen, onClose, onComplete }) {
                       <SelectValue placeholder="Select state" />
                     </SelectTrigger>
                     <SelectContent>
-                      {indianStates.map((state) => (
+                      {indianStates && indianStates.length > 0 && (indianStates ?? []).map((state) => (
                         <SelectItem key={state.isoCode} value={state.name}>
                           {state.name}
                         </SelectItem>
@@ -203,8 +203,8 @@ export default function OnboardingModal({ isOpen, onClose, onComplete }) {
                       />
                     </SelectTrigger>
                     <SelectContent>
-                      {cities.length > 0 ? (
-                        cities.map((city) => (
+                      {cities && cities.length > 0 ? (
+                        (cities ?? []).map((city) => (
                           <SelectItem key={city.name} value={city.name}>
                             {city.name}
                           </SelectItem>

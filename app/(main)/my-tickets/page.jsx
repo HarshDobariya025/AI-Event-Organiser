@@ -82,7 +82,7 @@ export default function MyTicketsPage() {
             <h2 className="text-2xl font-bold mb-4">Upcoming Events</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {upcomingTickets.map((registration) => (
+              {upcomingTickets && Array.isArray(upcomingTickets) && (upcomingTickets ?? []).map((registration) => (
                 <EventCard
                   key={registration._id}
                   event={registration.event}
@@ -101,7 +101,7 @@ export default function MyTicketsPage() {
             <h2 className="text-2xl font-bold mb-4">Past Events</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {pastTickets.map((registration) => (
+              {pastTickets && Array.isArray(pastTickets) && (pastTickets ?? []).map((registration) => (
                 <EventCard
                   key={registration._id}
                   event={registration.event}

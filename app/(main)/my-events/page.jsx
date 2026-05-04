@@ -73,7 +73,7 @@ export default function MyEventsPage() {
           </Card>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {events?.map((event) => (
+            {events && Array.isArray(events) && (events ?? []).map((event) => (
               <EventCard
                 key={event._id}
                 event={event}

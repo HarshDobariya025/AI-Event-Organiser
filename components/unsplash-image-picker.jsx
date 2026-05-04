@@ -67,7 +67,7 @@ export default function UnsplashImagePicker({ isOpen, onClose, onSelect }) {
             </div>
           ) : (
             <div className="grid grid-cols-3 gap-4 py-4">
-              {images.map((image) => (
+              {images && images.length > 0 && (images ?? []).map((image) => (
                 <button
                   key={image.id}
                   onClick={() => onSelect(image.urls.regular)}

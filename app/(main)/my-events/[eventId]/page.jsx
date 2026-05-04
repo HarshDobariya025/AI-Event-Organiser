@@ -89,7 +89,7 @@ export default function EventDashboardPage() {
         "Checked In At",
         "QR Code",
       ],
-      ...registrations.map((reg) => [
+      ...(registrations ?? []).map((reg) => [
         reg.attendeeName,
         reg.attendeeEmail,
         new Date(reg.registeredAt).toLocaleString(),
@@ -342,8 +342,8 @@ export default function EventDashboardPage() {
 
           {/* Attendee List */}
           <TabsContent value={activeTab} className="space-y-3 mt-0">
-            {filteredRegistrations && filteredRegistrations.length > 0 ? (
-              filteredRegistrations.map((registration) => (
+            {filteredRegistrations && Array.isArray(filteredRegistrations) && filteredRegistrations.length > 0 ? (
+              (filteredRegistrations ?? []).map((registration) => (
                 <AttendeeCard
                   key={registration._id}
                   registration={registration}

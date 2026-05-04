@@ -93,7 +93,7 @@ export const getMyRegistrations = query({
 
     // Fetch event details for each registration
     const registrationsWithEvents = await Promise.all(
-      registrations.map(async (reg) => {
+      (registrations ?? []).map(async (reg) => {
         const event = await ctx.db.get(reg.eventId);
         return {
           ...reg,
